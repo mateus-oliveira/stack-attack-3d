@@ -23,29 +23,6 @@ public class BottomCubesManager : MonoBehaviour {
         }
     }
 
-    /*
-    private bool AreAllPositionsFilled() {
-        for (int i = 0; i < cubes.Length; i++) {
-            if (cubes[i] == null) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-    */
-
-    /*
-    public void AddCubeAtIndex(int index, GameObject obj) {
-        cubes[index] = obj;
-        if (this.AreAllPositionsFilled()) {
-            foreach (GameObject go in cubes) {
-                Destroy(go);
-            }
-        }
-    }
-    */
-
     public void AddCube(GameObject obj) {
         cubes.Add(obj);
         if (cubes.Count == 12) {
