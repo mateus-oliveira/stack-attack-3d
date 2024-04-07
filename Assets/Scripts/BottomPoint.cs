@@ -2,18 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BottomPoint : MonoBehaviour
-{
-    private bool boxFlag;
+public class BottomPoint : MonoBehaviour {
     private BoxCollider boxCollider;
     [SerializeField] private int index;
 
-    void Start () {
-        boxFlag = false;
-    }
-
-    private void OnDrawGizmos()
-    {
+    private void OnDrawGizmos() {
         if (boxCollider == null)
             boxCollider = GetComponent<BoxCollider>();
 
