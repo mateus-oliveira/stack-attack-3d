@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour {
     private Rigidbody rb;
-    private bool isGrounded;
+    private BoxCollider boxCollider;
+    private SphereCollider sphereCollider;
     [SerializeField] private int cablePoint;
     [SerializeField] private float speed = 2f;
     [SerializeField] private GameObject[] cablePoints = new GameObject[12];
     [SerializeField] private GameObject[] bottomPoints = new GameObject[12];
 
     void Start() {
-        isGrounded = false;
+        boxCollider = GetComponent<BoxCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
         //cablePoint = Random.Range(0, 12);
         Debug.Log(cablePoint);
@@ -21,16 +23,14 @@ public class Cube : MonoBehaviour {
         if (!rb.useGravity) {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
-
-        if (isGrounded) {
-            rb.isKinematic = true;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-        }
     }
 
     void OnTriggerEnter(Collider other) {
         if (other.CompareTag("BottomPoint")) {
-            isGrounded = true;
+            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            boxCollider.enabled = true;
+            sphereCollider.enabled = false;
         }
 
         if (other.gameObject == cablePoints[cablePoint]) {
