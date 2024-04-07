@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CablePoint
+  - BottomPoint
   layers:
   - Default
   - TransparentFX

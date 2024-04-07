@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3935684643656582244}
   - component: {fileID: 3341971441115577364}
-  - component: {fileID: 5576901666980810638}
+  - component: {fileID: 967960859769215754}
   m_Layer: 0
-  m_Name: Point (1)
-  m_TagString: CablePoint
+  m_Name: BottomPoint
+  m_TagString: BottomPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,9 +52,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5576901666980810638
+--- !u!114 &967960859769215754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,6 +63,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2344249794774442874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13839ccf2eb3fc15db058d6423993ab6, type: 3}
+  m_Script: {fileID: 11500000, guid: 90696e4e9f0480cd1be37b1eaa36763b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
