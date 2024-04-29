@@ -6,17 +6,15 @@ public class Cube : MonoBehaviour {
     private Rigidbody rb;
     private BoxCollider boxCollider;
     private SphereCollider sphereCollider;
-    [SerializeField] private int cablePoint;
-    [SerializeField] private float speed = 2f;
-    [SerializeField] private GameObject[] cablePoints = new GameObject[12];
-    [SerializeField] private GameObject[] bottomPoints = new GameObject[12];
+    [SerializeField] private int cablePointIndex;
+    [SerializeField] private float speed;
 
     void Start() {
         boxCollider = GetComponent<BoxCollider>();
         sphereCollider = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
-        //cablePoint = Random.Range(0, 12);
-        Debug.Log(cablePoint);
+        cablePointIndex = Random.Range(0, 12);
+        Debug.Log(cablePointIndex);
     }
 
     void Update() {
@@ -29,13 +27,19 @@ public class Cube : MonoBehaviour {
         if (other.CompareTag("BottomPoint")) {
             rb.isKinematic = true;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            // rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             boxCollider.enabled = true;
             sphereCollider.enabled = false;
         }
 
-        if (other.gameObject == cablePoints[cablePoint]) {
+        if (other.gameObject == CablePointManager.Instance.GetCablePoints()[cablePointIndex]) {
             rb.useGravity = true;
             transform.position = other.gameObject.transform.position;
         }
+    }
+
+
+    public void SetSpeed(float speed) {
+        this.speed = speed;
     }
 }

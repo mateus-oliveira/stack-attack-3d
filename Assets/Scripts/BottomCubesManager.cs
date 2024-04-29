@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BottomCubesManager : MonoBehaviour {
-    //[SerializeField] private GameObject[] cubes = new GameObject[12];
     [SerializeField] private HashSet<GameObject> cubes = new HashSet<GameObject>();
 
     private static BottomCubesManager _instance;
@@ -28,7 +27,9 @@ public class BottomCubesManager : MonoBehaviour {
         if (cubes.Count == 12) {
             foreach (GameObject go in cubes) {
                 Destroy(go);
+                // TODO - increase points
             }
+            cubes.Clear();
         }
 
         foreach (GameObject go in cubes) {

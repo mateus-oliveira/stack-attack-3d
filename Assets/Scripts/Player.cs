@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
         Gizmos.DrawCube(transform.position-transform.up*maxDistance, boxSize);
     }
 
-    bool GroundCheck() {
+    private bool GroundCheck() {
         return Physics.BoxCast(
             transform.position,
             boxSize,

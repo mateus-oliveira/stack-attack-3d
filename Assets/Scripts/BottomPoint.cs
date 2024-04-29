@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BottomPoint : MonoBehaviour {
     private BoxCollider boxCollider;
-    [SerializeField] private int index;
 
     private void OnDrawGizmos() {
         if (boxCollider == null)
@@ -24,7 +23,6 @@ public class BottomPoint : MonoBehaviour {
                 0.5f,
                 -3.77f
             );
-            // BottomCubesManager.Instance.AddCubeAtIndex(index, other.gameObject);
             BottomCubesManager.Instance.AddCube(other.gameObject);
         }
     }
